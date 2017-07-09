@@ -10,8 +10,8 @@ class LifeGoalsController < ApplicationController
   end
 
   post '/life_goals' do
-    @life_goal = LifeGoal.new(params[:life_goal])
-    erb :"/life_goals/show"
+    @life_goal = LifeGoal.create(params[:life_goal])
+    erb :'/life_goals/show'
   end
 
   get '/life_goals/:id' do #show page

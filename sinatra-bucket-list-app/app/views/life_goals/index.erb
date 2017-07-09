@@ -1,1 +1,10 @@
 <center><h1>My Bucket List:</h1></center>
+<hr><br><br>
+
+<% @life_goals.each do |goal| %>
+  <div>
+    <li><%= goal.title %> | <%= goal.summary %> | View This Goal</li>
+  </div><br>
+<% end %>
+
+<br>
