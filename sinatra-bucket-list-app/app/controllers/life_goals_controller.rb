@@ -18,4 +18,15 @@ class LifeGoalsController < ApplicationController
     @life_goal = LifeGoal.find_by(id: params[:id])
     erb :'/life_goals/show'
   end
+
+  get '/life_goals/:id/edit' do #edit page
+    @life_goal = LifeGoal.find_by(id: params[:id])
+    erb :'/life_goals/edit'
+  end
+
+  patch '/life_goals/:id' do
+    @life_goal = LifeGoal.find_by(id: params[:id])
+    @life_goal.update(params[:life_goal])
+    erb :'/life_goals/show'
+  end
 end
