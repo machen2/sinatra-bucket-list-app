@@ -1,1 +1,28 @@
 <h1>Edit a Life Goal:</h1>
+<hr>
+<br>
+<form action="/life_goals/<%= @life_goal.id %>" method="POST">
+  <input type="hidden" id="hidden" name="_method" value="PATCH">
+
+  <div>
+    <label for="title">Title: </label>
+    <input type="text" name="life_goal[title]" id="title" value='<%= @life_goal.title %>'>
+  </div><br>
+
+  <div>
+    <label for="location">Location: </label>
+    <input type="text" name="life_goal[location]" id="location" value='<%= @life_goal.location %>'>
+  </div><br>
+
+  <div>
+    <label for="summary">Short Summary: </label>
+    <input type="text" name="life_goal[summary]" value='<%= @life_goal.summary %>' id="summary">
+  </div><br>
+
+  <div>
+    <label for="description">Detailed Description: </label>
+    <input type="text" name="life_goal[description]" value='<%= @life_goal.description %>' id="description">
+  </div><br>
+
+  <input type="submit" value="Edit Goal">
+</form>

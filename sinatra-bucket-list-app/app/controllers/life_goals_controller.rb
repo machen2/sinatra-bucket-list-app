@@ -27,6 +27,6 @@ class LifeGoalsController < ApplicationController
   patch '/life_goals/:id' do
     @life_goal = LifeGoal.find_by(id: params[:id])
     @life_goal.update(params[:life_goal])
-    erb :'/life_goals/show'
+    redirect :"/life_goals/#{@life_goal.id}"
   end
 end
