@@ -1,4 +1,4 @@
-<h1>Life Goal: <%= @life_goal.title %> </h1>
+<h1><%= @life_goal.title %> </h1>
 <hr>
   <br>
 
@@ -10,5 +10,13 @@
   <p><strong>Description:</strong> <%= @life_goal.description %></p>
 </div>
 
+<br>
+<a href="/life_goals/<%= @life_goal.id %>/edit">Edit Goal Here</a> | <a href="/life_goals">View Full Bucket List</a>
 <br></br>
-<center><a href="/life_goals/<%= @life_goal.id %>/edit">Edit Goal Here</a>  |  delete goal here</p></center>
+
+<div align="right">
+  <form action='/life_goals/<%= @life_goal.id %>/delete' method="POST">
+    <input type="hidden" id="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Goal">
+  </form>
+</div>
