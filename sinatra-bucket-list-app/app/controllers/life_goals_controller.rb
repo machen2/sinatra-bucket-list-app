@@ -27,7 +27,7 @@ class LifeGoalsController < ApplicationController
   patch '/life_goals/:id' do
     @life_goal = LifeGoal.find_by(id: params[:id])
     @life_goal.update(params[:life_goal])
-    redirect '/life_goals/#{@life_goal.id}'
+    redirect to "/life_goals/#{@life_goal.id}"
   end
 
   delete '/life_goals/:id/delete' do #delete action
