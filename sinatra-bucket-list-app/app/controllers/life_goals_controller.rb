@@ -1,0 +1,3 @@
+class LifeGoalsController < ApplicationController
+
+end
