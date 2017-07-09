@@ -1,3 +1,14 @@
-<h1>Life Goal: TITLE HERE <h1>
+<h1>Life Goal: <%= @life_goal.title %> </h1>
+<hr>
+  <br>
 
-<p>life goal info here</p>
+<div>
+  <p><strong>Location:</strong> <%= @life_goal.location %></p>
+    <br>
+  <p><strong>Summary:</strong> <%= @life_goal.summary %></p>
+    <br>
+  <p><strong>Description:</strong> <%= @life_goal.description %></p>
+</div>
+
+<br></br>
+<center><p>edit goal here  |  delete goal here</p></center>
