@@ -3,7 +3,7 @@
 
 <% @life_goals.each do |goal| %>
   <div>
-    <li><%= goal.title %> | <%= goal.summary %> | View This Goal</li>
+    <li><%= goal.title %> | <%= goal.summary %> | <a href="/life_goals/<%= goal.id %>">View This Goal</a></li>
   </div><br>
 <% end %>
 
