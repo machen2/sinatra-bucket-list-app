@@ -1,1 +1,28 @@
 <h1>Create a New Life Goal:</h1>
+<hr>
+<br>
+<form action="/life_goals" method="POST">
+  <div>
+    <label for="title">Title: </label>
+    <input type="text" name="life_goal[title]" id="title">
+  </div><br>
+
+  <div>
+    <label for="location">Location: </label>
+    <input type="text" name="life_goal[location]" id="location">
+  </div><br>
+
+  <div>
+    <label for="summary">Short Summary: </label><br></br>
+    <textarea name="life_goal[summary]" id="summary" cols="60" rows="2" placeholder="Maximum 100 Characters"></textarea>
+  </div><br>
+
+  <div>
+    <label for="description">Detailed Description: </label><br></br>
+    <textarea name="life_goal[description]" id="description" cols="60" rows="4" placeholder="Minimum 100 Characters"></textarea>
+  </div><br>
+
+  <div>
+    <input type="submit" value="Create!">
+  </div>
+</form>
