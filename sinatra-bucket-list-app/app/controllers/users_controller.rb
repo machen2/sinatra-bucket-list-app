@@ -5,9 +5,12 @@ class UsersController < ApplicationController
 
   post '/signup' do
     @user = User.new(name: params[:name], username: params[:username], password: params[:password], email: params[:email])
-    @user.save
-    session[:user_id] = @user.id
-    redirect to '/life_goals'
+    if @user.save
+      session[:user_id] = @user.id
+      redirect to '/life_goals'
+    else
+      redirect to '/signup'
+    end
   end
 
   get '/login' do
@@ -16,7 +19,7 @@ class UsersController < ApplicationController
 
   post '/login' do
     @user = User.find_by(username: params[:username])
-    if @user && user.authenticate(params[:password])
+    if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect to '/life_goals'
     else
@@ -25,7 +28,7 @@ class UsersController < ApplicationController
   end
 
   get '/logout' do
-    session.clear
+    session.destroy
     redirect to '/'
   end
 end

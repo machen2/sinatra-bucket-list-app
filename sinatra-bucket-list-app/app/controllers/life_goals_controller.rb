@@ -1,7 +1,7 @@
 class LifeGoalsController < ApplicationController
 
   get '/life_goals' do #index page
-    @life_goals = LifeGoal.all
+    @life_goals = current_user.life_goals
     erb :'/life_goals/index'
   end
 
@@ -11,6 +11,7 @@ class LifeGoalsController < ApplicationController
 
   post '/life_goals' do
     @life_goal = LifeGoal.create(params[:life_goal])
+    @life_goal.user_id = session[:user_id]
     erb :'/life_goals/show'
   end
 
