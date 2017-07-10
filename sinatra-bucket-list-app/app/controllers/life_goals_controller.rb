@@ -12,6 +12,7 @@ class LifeGoalsController < ApplicationController
   post '/life_goals' do
     @life_goal = LifeGoal.create(params[:life_goal])
     @life_goal.user_id = session[:user_id]
+    @life_goal.save
     erb :'/life_goals/show'
   end
 
