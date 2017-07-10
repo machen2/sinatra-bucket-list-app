@@ -9,4 +9,18 @@ class UsersController < ApplicationController
     session[:user_id] = @user.id
     redirect to '/life_goals'
   end
+
+  get '/login' do
+    erb :'/users/login'
+  end
+
+  post '/login' do
+    @user = User.find_by(username: params[:username])
+    if @user && user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      redirect to '/life_goals'
+    else
+      redirect to '/users/signup'
+    end
+
 end
