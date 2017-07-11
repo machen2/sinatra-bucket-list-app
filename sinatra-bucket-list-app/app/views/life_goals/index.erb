@@ -5,9 +5,11 @@
 <br><br>
 
 <% @life_goals.each do |goal| %>
-  <div>
-    <li><strong><%= goal.title %></strong> | <%= goal.summary %> | <a href="/life_goals/<%= goal.id %>">View This Goal</a></li>
-  </div><br>
+  <% if goal.completed == false %>
+    <div>
+      <li><strong><%= goal.title %></strong> | <%= goal.summary %> | <a href="/life_goals/<%= goal.id %>">View This Goal</a></li>
+    </div><br>
+  <% end %>
 <% end %>
 
 <br>
@@ -15,9 +17,19 @@
 <a href="/life_goals/new">+ Add a New Life Goal</a>
 
 <br><br><hr><br>
+
 <h3>Completed Life Goals:</h3>
 
 <br><br>
+<% @life_goals.each do |goal| %>
+  <% if goal.completed == true %>
+    <div>
+      <li><strong><%= goal.title %></strong> | <%= goal.summary %> | <a href="/life_goals/<%= goal.id %>">View This Goal</a></li>
+    </div><br>
+  <% end %>
+<% end %>
+
+<br>
 <div align="right">
   <a href="/logout">Log Out</a>
 </div>

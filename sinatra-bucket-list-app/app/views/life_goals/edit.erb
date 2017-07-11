@@ -24,6 +24,12 @@
     <input type="text" name="life_goal[description]" value='<%= @life_goal.description %>' id="description">
   </div><br>
 
+  <div>
+    <label for="completed">Completed: </label>
+    Yes <input type="radio" name="life_goal[completed]" value="true" <%='checked' if @life_goal.completed %> >
+    No <input type="radio" name="life_goal[completed]" value="false" <%='checked' if !@life_goal.completed %> >
+  </div><br>
+
   <input type="submit" value="Edit Goal">
 </form>
 
