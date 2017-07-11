@@ -18,10 +18,14 @@ class LifeGoalsController < ApplicationController
   end
 
   post '/life_goals' do
-    @life_goal = LifeGoal.create(params[:life_goal])
-    @life_goal.user_id = session[:user_id]
-    @life_goal.save
-    erb :'/life_goals/show'
+    @life_goal = LifeGoal.new(params[:life_goal])
+    if @life_goal.save
+      @life_goal.user_id = session[:user_id]
+      @life_goal.save
+      erb :'/life_goals/show'
+    else
+      redirect to '/life_goals/new'
+    end
   end
 
   get '/life_goals/:id' do #show page
