@@ -21,6 +21,10 @@ class ApplicationController < Sinatra::Base
     def logged_in?
       !!session[:user_id]
     end
+
+    def set_life_goal
+      @life_goal = LifeGoal.find_by(id: params[:id])
+    end
   end
 
 end

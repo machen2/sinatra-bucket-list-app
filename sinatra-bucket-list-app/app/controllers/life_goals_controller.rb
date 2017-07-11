@@ -25,7 +25,7 @@ class LifeGoalsController < ApplicationController
   end
 
   get '/life_goals/:id' do #show page
-    @life_goal = LifeGoal.find_by(id: params[:id])
+    set_life_goal
     if logged_in? && (current_user.id == @life_goal.user_id)
       erb :'/life_goals/show'
     else
@@ -34,7 +34,7 @@ class LifeGoalsController < ApplicationController
   end
 
   get '/life_goals/:id/edit' do #edit page
-    @life_goal = LifeGoal.find_by(id: params[:id])
+    set_life_goal
     if logged_in? && (current_user.id == @life_goal.user_id)
       erb :'/life_goals/edit'
     else
@@ -43,13 +43,13 @@ class LifeGoalsController < ApplicationController
   end
 
   patch '/life_goals/:id' do
-    @life_goal = LifeGoal.find_by(id: params[:id])
+    set_life_goal
     @life_goal.update(params[:life_goal])
     redirect to "/life_goals/#{@life_goal.id}"
   end
 
   delete '/life_goals/:id/delete' do #delete action
-    @life_goal = LifeGoal.find_by(id: params[:id])
+    set_life_goal
     if logged_in? && (current_user.id == @life_goal.user_id)
       @life_goal.delete
     end
