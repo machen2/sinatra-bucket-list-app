@@ -3,4 +3,10 @@ class LifeGoal < ActiveRecord::Base
 
   validates :title, :location, :summary, :description, presence: true
   validates :summary, length: { maximum: 40 }
+
+  def reset_reflection
+    if self.completed == false
+      self.reflection = nil
+    end
+  end
 end

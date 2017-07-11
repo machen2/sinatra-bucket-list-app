@@ -15,13 +15,13 @@
   </div><br>
 
   <div>
-    <label for="summary">Short Summary: </label>
-    <input type="text" name="life_goal[summary]" value='<%= @life_goal.summary %>' id="summary">
+    <label for="summary">Short Summary: </label><br><br>
+    <textarea type="text" name="life_goal[summary]" id="summary" cols="60" rows="2"><%= @life_goal.summary %></textarea>
   </div><br>
 
   <div>
-    <label for="description">Detailed Description: </label>
-    <input type="text" name="life_goal[description]" value='<%= @life_goal.description %>' id="description">
+    <label for="description">Detailed Description: </label><br><br>
+    <textarea name="life_goal[description]" id="description" cols="60" rows="4"><%= @life_goal.description %></textarea>
   </div><br>
 
   <div>
@@ -32,8 +32,8 @@
 
   <% if @life_goal.completed %>
     <div>
-      <label for="description">Reflection: </label>
-      <input type="text" name="life_goal[reflection]" value='<%= @life_goal.reflection %>' id="reflection" placeholder="(add reflection once goal is completed)">
+      <label for="description">Reflection: </label><br><br>
+      <textarea cols="60" rows="4" name="life_goal[reflection]" id="reflection" placeholder="(optional)"><%= @life_goal.reflection %></textarea>
     </div><br>
   <% end %>
 
