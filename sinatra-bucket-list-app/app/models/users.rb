@@ -3,9 +3,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  validates :name, presence: true, length: { minimum: 2 }
-  validates :email, presence: true, length: { minimum: 5 }, format: { with: /@/, message: "Invalid email address."}
-  validates :username, presence: true, length: { minimum: 4 }
+  validates :name, :username, presence: true, length: { minimum: 2 }
+  validates :email, presence: true, format: { with: /@/, message: "Invalid email address."}
   validates :password, presence: true, length: { minimum: 5 }
-  validates :username, uniqueness: {message: "This username has already been taken."}
+  validates :username, :email, uniqueness: true
 end
