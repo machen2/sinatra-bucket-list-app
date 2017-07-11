@@ -2,14 +2,16 @@
 <hr>
 <br>
 
-<% if flash.has?(:error) %>
-    <ul>
-      <% flash[:error].each do |error| %>
-        <li><%= error %></li>
-      <% end %>
-    </ul>
-    <br>
-<% end %>
+<div style="color:red;">
+  <% if flash.has?(:errors) %>
+      <ul>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+      <br>
+  <% end %>
+</div>
 
 <form action="/life_goals" method="POST">
   <div>
@@ -24,7 +26,7 @@
 
   <div>
     <label for="summary">Short Summary: </label><br></br>
-    <textarea name="life_goal[summary]" id="summary" cols="60" rows="2" placeholder="Maximum 50 Characters"></textarea>
+    <textarea name="life_goal[summary]" id="summary" cols="60" rows="2" placeholder="Maximum 40 Characters"></textarea>
   </div><br>
 
   <div>

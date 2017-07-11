@@ -24,6 +24,7 @@ class LifeGoalsController < ApplicationController
       @life_goal.save
       erb :'/life_goals/show'
     else
+      flash[:errors] = @life_goal.errors.full_messages
       redirect to '/life_goals/new'
     end
   end
