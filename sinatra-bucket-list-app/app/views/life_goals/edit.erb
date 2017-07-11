@@ -30,6 +30,13 @@
     No <input type="radio" name="life_goal[completed]" value="false" <%='checked' if !@life_goal.completed %> >
   </div><br>
 
+  <% if @life_goal.completed %>
+    <div>
+      <label for="description">Reflection: </label>
+      <input type="text" name="life_goal[reflection]" value='<%= @life_goal.reflection %>' id="reflection" placeholder="(add reflection once goal is completed)">
+    </div><br>
+  <% end %>
+
   <input type="submit" value="Edit Goal">
 </form>
 

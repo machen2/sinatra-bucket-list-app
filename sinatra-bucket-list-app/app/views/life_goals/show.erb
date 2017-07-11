@@ -8,6 +8,14 @@
   <p><strong>Summary:</strong> <%= @life_goal.summary %></p>
     <br>
   <p><strong>Description:</strong> <%= @life_goal.description %></p>
+
+  <% if @life_goal.completed %>
+    <br><p><strong>Status:</strong> Completed</p>
+      <br>
+    <p><strong>Reflection: </strong> <%= @life_goal.reflection %></p>
+      <br>
+  <% end %>
+
 </div>
 
 <br>

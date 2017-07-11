@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170711185140) do
+ActiveRecord::Schema.define(version: 20170711204748) do
 
   create_table "life_goals", force: :cascade do |t|
     t.string  "title"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20170711185140) do
     t.string  "location"
     t.integer "user_id"
     t.boolean "completed",   default: false
+    t.string  "reflection"
   end
 
   create_table "users", force: :cascade do |t|
