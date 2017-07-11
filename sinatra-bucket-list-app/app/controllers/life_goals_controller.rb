@@ -49,10 +49,13 @@ class LifeGoalsController < ApplicationController
 
   patch '/life_goals/:id' do
     set_life_goal
-    @life_goal.update(params[:life_goal])
-    @life_goal.reset_reflection
-    @life_goal.save
-    redirect to "/life_goals/#{@life_goal.id}"
+    if @life_goal.update(params[:life_goal])
+      @life_goal.reset_reflection
+      @life_goal.save
+      redirect to "/life_goals/#{@life_goal.id}"
+    else
+      redirect to "/life_goals/#{@life_goal.id}/edit"
+    end
   end
 
   delete '/life_goals/:id/delete' do #delete action
