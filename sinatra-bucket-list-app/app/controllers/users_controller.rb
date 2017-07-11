@@ -13,6 +13,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect to '/life_goals'
     else
+      flash[:errors] = @user.errors.full_messages
       redirect to '/signup'
     end
   end
