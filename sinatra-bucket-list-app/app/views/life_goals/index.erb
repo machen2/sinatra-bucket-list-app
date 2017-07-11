@@ -1,5 +1,8 @@
 <center><h1><%= current_user.name %>'s Bucket List:</h1></center>
-<hr><br><br>
+<hr><br>
+
+<h3>Life Goals:</h3>
+<br><br>
 
 <% @life_goals.each do |goal| %>
   <div>
@@ -10,6 +13,9 @@
 <br>
 
 <a href="/life_goals/new">+ Add a New Life Goal</a>
+
+<br><br><hr><br>
+<h3>Completed Life Goals:</h3>
 
 <br><br>
 <div align="right">
