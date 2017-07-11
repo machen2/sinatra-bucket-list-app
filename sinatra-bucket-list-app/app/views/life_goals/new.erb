@@ -1,6 +1,16 @@
 <h1>Create a New Life Goal:</h1>
 <hr>
 <br>
+
+<% if flash.has?(:error) %>
+    <ul>
+      <% flash[:error].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+    <br>
+<% end %>
+
 <form action="/life_goals" method="POST">
   <div>
     <label for="title">Title: </label>
@@ -19,7 +29,7 @@
 
   <div>
     <label for="description">Detailed Description: </label><br></br>
-    <textarea name="life_goal[description]" id="description" cols="60" rows="4" placeholder="Minimum 50 Characters"></textarea>
+    <textarea name="life_goal[description]" id="description" cols="60" rows="4"></textarea>
   </div><br>
 
   <div>
