@@ -32,7 +32,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect to '/life_goals'
     else
-      redirect to '/signup'
+      redirect to '/login'
     end
   end
 
