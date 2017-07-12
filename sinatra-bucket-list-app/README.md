@@ -22,7 +22,7 @@ Then, in your browser, navigate to the server address listed in the terminal.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/machen2/sinatra-bucket-list-app. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/machen2/sinatra-bucket-list-app. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://www.contributor-covenant.org) code of conduct.
 
 ## License
 
