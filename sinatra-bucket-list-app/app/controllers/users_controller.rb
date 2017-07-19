@@ -8,13 +8,17 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    @user = User.new(name: params[:name], username: params[:username], password: params[:password], email: params[:email])
-    if @user.save
-      session[:user_id] = @user.id
+    if logged_in?
       redirect to '/life_goals'
     else
-      flash[:errors] = @user.errors.full_messages
-      redirect to '/signup'
+      @user = User.new(name: params[:name], username: params[:username], password: params[:password], email: params[:email])
+      if @user.save
+        session[:user_id] = @user.id
+        redirect to '/life_goals'
+      else
+        flash[:errors] = @user.errors.full_messages
+        redirect to '/signup'
+      end
     end
   end
 
@@ -27,12 +31,16 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
-    @user = User.find_by(username: params[:username])
-    if @user && @user.authenticate(params[:password])
-      session[:user_id] = @user.id
+    if logged_in?
       redirect to '/life_goals'
     else
-      redirect to '/login'
+      @user = User.find_by(username: params[:username])
+      if @user && @user.authenticate(params[:password])
+        session[:user_id] = @user.id
+        redirect to '/life_goals'
+      else
+        redirect to '/login'
+      end
     end
   end
 
